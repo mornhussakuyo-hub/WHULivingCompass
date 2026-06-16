@@ -1,94 +1,8 @@
 const categories = [
   { name: "校内信息门户", icon: "landmark" },
+  { name: "课程学习平台", icon: "book" },
   { name: "实用工具", icon: "tool" },
   { name: "其他网址导航", icon: "compass" },
-];
-
-const fallbackSites = [
-  {
-    url: "https://ehall.whu.edu.cn/",
-    name: "智慧珞珈",
-    description: "武汉大学统一办事与校内服务入口，适合集中处理常用校园事务。",
-    category: "校内信息门户",
-    tags: ["办事大厅", "校内服务", "统一入口"],
-  },
-  {
-    url: "https://www.whu.edu.cn/",
-    name: "武汉大学官网",
-    description: "学校新闻、通知公告、机构信息与公开资料的官方入口。",
-    category: "校内信息门户",
-    tags: ["官网", "公告", "学校信息"],
-  },
-  {
-    url: "https://news.whu.edu.cn/",
-    name: "武大新闻网",
-    description: "查看学校要闻、学术动态、人物报道与校园专题。",
-    category: "校内信息门户",
-    tags: ["新闻", "校园动态", "专题"],
-  },
-  {
-    url: "https://lib.whu.edu.cn/",
-    name: "武汉大学图书馆",
-    description: "馆藏检索、数据库访问、空间预约与图书馆服务入口。",
-    category: "校内信息门户",
-    tags: ["图书馆", "文献", "数据库"],
-  },
-  {
-    url: "https://mail.whu.edu.cn/",
-    name: "武汉大学邮箱",
-    description: "学校邮箱登录入口，用于收发校内通知与学术往来邮件。",
-    category: "实用工具",
-    tags: ["邮箱", "通知", "账号"],
-  },
-  {
-    url: "https://vpn.whu.edu.cn/",
-    name: "校园 VPN",
-    description: "校外访问校内资源与数据库时常用的安全接入服务。",
-    category: "实用工具",
-    tags: ["VPN", "校外访问", "资源"],
-  },
-  {
-    url: "https://www.deepl.com/translator",
-    name: "DeepL 翻译",
-    description: "适合阅读论文、邮件与网页内容时使用的多语言翻译工具。",
-    category: "实用工具",
-    tags: ["翻译", "论文", "写作"],
-  },
-  {
-    url: "https://www.wolframalpha.com/",
-    name: "WolframAlpha",
-    description: "数学、物理、统计与工程计算的知识计算引擎。",
-    category: "实用工具",
-    tags: ["计算", "数学", "查询"],
-  },
-  {
-    url: "https://github.com/",
-    name: "GitHub",
-    description: "代码托管、项目协作、开源检索与个人作品集维护平台。",
-    category: "其他网址导航",
-    tags: ["代码", "开源", "协作"],
-  },
-  {
-    url: "https://www.zhihu.com/",
-    name: "知乎",
-    description: "面向学习、生活经验与专业讨论的中文问答社区。",
-    category: "其他网址导航",
-    tags: ["问答", "经验", "社区"],
-  },
-  {
-    url: "https://www.bilibili.com/",
-    name: "哔哩哔哩",
-    description: "课程视频、技术分享、校园生活内容与综合视频社区。",
-    category: "其他网址导航",
-    tags: ["视频", "课程", "社区"],
-  },
-  {
-    url: "https://www.runoob.com/",
-    name: "菜鸟教程",
-    description: "编程语言、Web 技术与开发工具的快速入门参考。",
-    category: "其他网址导航",
-    tags: ["编程", "教程", "参考"],
-  },
 ];
 
 const icons = {
@@ -98,6 +12,13 @@ const icons = {
       <path d="M5 10 12 4l7 6" />
       <path d="M6 10v8M10 10v8M14 10v8M18 10v8" />
       <path d="M4 20h16" />
+    </svg>
+  `,
+  book: `
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+      <path d="M6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5v-13A2.5 2.5 0 0 1 6.5 3Z" />
+      <path d="M8 7h8" />
     </svg>
   `,
   tool: `
@@ -156,13 +77,6 @@ function bindEvents() {
 }
 
 async function loadSites() {
-  if (window.location.protocol === "file:") {
-    state.sites = fallbackSites;
-    renderCategories();
-    renderSites();
-    return;
-  }
-
   try {
     const response = await fetch("./data/sites.json");
 
@@ -174,10 +88,10 @@ async function loadSites() {
     renderCategories();
     renderSites();
   } catch (error) {
-    state.sites = fallbackSites;
-    renderCategories();
-    renderSites();
-    console.warn("Using fallback site data:", error);
+    els.siteGrid.innerHTML = "";
+    els.emptyState.hidden = false;
+    els.emptyState.querySelector("p").textContent = "数据加载失败";
+    console.error("Failed to load site data:", error);
   }
 }
 

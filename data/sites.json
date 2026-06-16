@@ -1,10 +1,17 @@
 [
   {
-    "url": "https://ehall.whu.edu.cn/",
+    "url": "https://zhlj.whu.edu.cn/",
     "name": "智慧珞珈",
     "description": "武汉大学统一办事与校内服务入口，适合集中处理常用校园事务。",
     "category": "校内信息门户",
     "tags": ["办事大厅", "校内服务", "统一入口"]
+  },
+  {
+    "url": "https://aieban.whu.edu.cn/",
+    "name": "AI 易办",
+    "description": "武汉大学智能化办事服务入口，面向校内事务咨询、办理与服务查询。",
+    "category": "校内信息门户",
+    "tags": ["AI 易办", "办事服务", "智能助手"]
   },
   {
     "url": "https://www.whu.edu.cn/",
@@ -14,18 +21,32 @@
     "tags": ["官网", "公告", "学校信息"]
   },
   {
-    "url": "https://news.whu.edu.cn/",
-    "name": "武大新闻网",
-    "description": "查看学校要闻、学术动态、人物报道与校园专题。",
-    "category": "校内信息门户",
-    "tags": ["新闻", "校园动态", "专题"]
-  },
-  {
     "url": "https://lib.whu.edu.cn/",
     "name": "武汉大学图书馆",
     "description": "馆藏检索、数据库访问、空间预约与图书馆服务入口。",
     "category": "校内信息门户",
     "tags": ["图书馆", "文献", "数据库"]
+  },
+  {
+    "url": "https://sai.whu.edu.cn/",
+    "name": "人工智能学院官网",
+    "description": "武汉大学人工智能学院官方入口，查看学院新闻、通知公告、机构与人才培养信息。",
+    "category": "校内信息门户",
+    "tags": ["人工智能学院", "学院官网", "通知公告"]
+  },
+  {
+    "url": "http://115.156.107.145/",
+    "name": "人工智能学院专业课一体化平台",
+    "description": "面向人工智能学院专业课程学习、课程资源与教学相关服务的平台入口。",
+    "category": "课程学习平台",
+    "tags": ["人工智能学院", "专业课", "课程平台"]
+  },
+  {
+    "url": "https://aicenter.whu.edu.cn/",
+    "name": "珞珈在线 / MOOC 平台",
+    "description": "武汉大学在线课程与 MOOC 学习平台入口，用于课程学习、资源访问与在线教学。",
+    "category": "课程学习平台",
+    "tags": ["珞珈在线", "MOOC", "在线课程"]
   },
   {
     "url": "https://mail.whu.edu.cn/",
@@ -42,18 +63,11 @@
     "tags": ["VPN", "校外访问", "资源"]
   },
   {
-    "url": "https://www.deepl.com/translator",
-    "name": "DeepL 翻译",
-    "description": "适合阅读论文、邮件与网页内容时使用的多语言翻译工具。",
+    "url": "https://chatgpt.com/",
+    "name": "ChatGPT",
+    "description": "用于学习辅助、资料整理、写作打磨与代码问题分析的 AI 工具。",
     "category": "实用工具",
-    "tags": ["翻译", "论文", "写作"]
-  },
-  {
-    "url": "https://www.wolframalpha.com/",
-    "name": "WolframAlpha",
-    "description": "数学、物理、统计与工程计算的知识计算引擎。",
-    "category": "实用工具",
-    "tags": ["计算", "数学", "查询"]
+    "tags": ["AI", "学习助手", "写作"]
   },
   {
     "url": "https://github.com/",
